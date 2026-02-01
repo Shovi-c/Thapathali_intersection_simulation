@@ -1,0 +1,38 @@
+
+<routes>
+
+    <!-- ===================== -->
+    <!-- Maitighar Routes -->
+    <!-- ===================== -->
+    <route id="m_maternity" edges="E26 E0 E3 E2"/>
+    <route id="m_kupondole" edges="E26 E0 E5 E21"/>
+    <route id="m_tri" edges="E26 E1 E4 E10"/>
+
+   
+
+    <!-- ===================== -->
+    <!-- Tripureshwor Routes -->
+    <!-- ===================== -->
+    <route id="tri_m" edges="E27 E15 E16 E18"/>
+    <route id="tri_maternity" edges="E27 E14 E22 E24 E2"/>
+    <route id="tri_kupondole" edges="E27 E14 E22 E23 E21"/>
+
+    
+
+    <!-- ===================== -->
+    <!-- Maternity Routes -->
+    <!-- ===================== -->
+    <route id="maternity_kupondole" edges="-E2 E6 E21"/>
+   
+
+    <!-- ===================== -->
+    <!-- Kupondole Routes -->
+    <!-- ===================== -->
+    <route id="kupondole_tri" edges="E7 E8 E10"/>
+    <route id="kupondole_m" edges="E25 E17 E18"/>
+    <route id="kupondole_maternity" edges="E25 E20 E2"/>
+
+   
+</routes>
+
+

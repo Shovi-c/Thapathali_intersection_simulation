@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-02-04T00:48:09.994373+05:45 by Eclipse SUMO netedit 1.25.0
+<!-- generated on 2026-02-04T01:38:01.159731+05:45 by Eclipse SUMO netedit 1.25.0
 <neteditConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/neteditConfiguration.xsd">
 
     <input>
@@ -212,30 +212,30 @@
         <lane id="E9_0" index="0" speed="13.89" length="1.95" width="4.00" shape="16.83,23.10 17.04,25.04"/>
     </edge>
 
-    <tlLogic id="clusterJ26_J58" type="static" programID="0" offset="0">
-        <phase duration="82" state="GG"/>
-        <phase duration="3"  state="yy"/>
-        <phase duration="5"  state="rr"/>
-    </tlLogic>
-    <tlLogic id="clusterJ39_J40" type="static" programID="0" offset="0">
-        <phase duration="82" state="GG"/>
-        <phase duration="3"  state="yy"/>
-        <phase duration="5"  state="rr"/>
-    </tlLogic>
-    <tlLogic id="clusterJ41_J42_J43" type="static" programID="0" offset="0">
+    <tlLogic id="T1" type="static" programID="0" offset="0">
         <phase duration="82" state="GGG"/>
         <phase duration="3"  state="yyy"/>
         <phase duration="5"  state="rrr"/>
     </tlLogic>
-    <tlLogic id="clusterJ44_J47" type="static" programID="0" offset="0">
+    <tlLogic id="T2" type="static" programID="0" offset="0">
+        <phase duration="82" state="GG"/>
+        <phase duration="3"  state="yy"/>
+        <phase duration="5"  state="rr"/>
+    </tlLogic>
+    <tlLogic id="T3" type="static" programID="0" offset="0">
+        <phase duration="82" state="GGG"/>
+        <phase duration="3"  state="yyy"/>
+        <phase duration="5"  state="rrr"/>
+    </tlLogic>
+    <tlLogic id="T4" type="static" programID="0" offset="0">
+        <phase duration="82" state="GG"/>
+        <phase duration="3"  state="yy"/>
+        <phase duration="5"  state="rr"/>
+    </tlLogic>
+    <tlLogic id="T5" type="static" programID="0" offset="0">
         <phase duration="82" state="G"/>
         <phase duration="3"  state="y"/>
         <phase duration="5"  state="r"/>
-    </tlLogic>
-    <tlLogic id="clusterJ55_clusterJ51_J53" type="static" programID="0" offset="0">
-        <phase duration="82" state="GGG"/>
-        <phase duration="3"  state="yyy"/>
-        <phase duration="5"  state="rrr"/>
     </tlLogic>
 
     <junction id="J12" type="priority" x="6.51" y="-36.52" incLanes="E7_0" intLanes=":J12_0_0" shape="6.51,-36.49 1.56,-35.78 1.34,-38.16 1.27,-39.01 1.10,-39.82 0.74,-40.74 0.09,-41.92 2.75,-43.33 4.50,-40.93 5.18,-40.10 5.74,-39.24 6.18,-38.11">
@@ -244,7 +244,7 @@
     <junction id="J28" type="dead_end" x="262.19" y="478.54" incLanes="E18_0 E18_1" intLanes="" shape="262.19,478.54 267.10,472.22 257.92,484.09"/>
     <junction id="J49" type="dead_end" x="-109.18" y="-258.82" incLanes="E21_0 E21_1" intLanes="" shape="-103.21,-259.44 -109.18,-258.82"/>
     <junction id="J6" type="dead_end" x="298.83" y="-164.06" incLanes="E2_0" intLanes="" shape="298.91,-163.91 297.56,-166.59 300.19,-161.38"/>
-    <junction id="J64" type="priority" x="-310.53" y="340.25" incLanes="" intLanes="" shape="-310.53,340.25 -304.92,342.89"/>
+    <junction id="J64" type="dead_end" x="-310.53" y="340.25" incLanes="" intLanes="" shape="-310.53,340.25 -304.92,342.89"/>
     <junction id="J65" type="dead_end" x="-313.91" y="336.83" incLanes="E10_0 E10_1" intLanes="" shape="-318.06,331.77 -314.26,336.41"/>
     <junction id="M1" type="priority" x="30.36" y="58.98" incLanes="E26_0 E26_1" intLanes=":M1_0_0 :M1_1_0" shape="38.62,57.06 31.31,60.30 30.03,57.51 37.26,54.13">
         <request index="0" response="00" foes="00" cont="0"/>
@@ -253,10 +253,7 @@
     <junction id="M10" type="priority" x="17.96" y="21.83" incLanes="E17_0" intLanes=":M10_0_0" shape="18.82,22.89 14.85,23.31 12.34,20.49 19.32,19.95 19.20,21.04 19.05,21.42 18.91,21.80 18.81,22.26">
         <request index="0" response="0" foes="0" cont="0"/>
     </junction>
-    <junction id="M11" type="unregulated" x="-66.80" y="42.37" incLanes="E27_0 E27_1" intLanes=":M11_0_0 :M11_1_0" shape="-66.80,40.68 -62.20,44.55 -63.97,46.94 -68.75,42.99">
-        <request index="0" response="00" foes="00" cont="0"/>
-        <request index="1" response="00" foes="00" cont="0"/>
-    </junction>
+    <junction id="M11" type="unregulated" x="-66.80" y="42.37" incLanes="E27_0 E27_1" intLanes=":M11_0_0 :M11_1_0" shape="-66.80,40.68 -62.20,44.55 -63.97,46.94 -68.75,42.99"/>
     <junction id="M3" type="priority" x="-16.34" y="6.70" incLanes="E15_0" intLanes=":M3_0_0" shape="-19.55,7.72 -18.81,11.65 -21.63,11.93 -22.63,11.84 -23.63,11.68 -24.85,11.53 -26.49,11.44 -26.38,8.69 -23.83,8.61 -22.94,8.47 -22.06,8.27 -20.99,8.02">
         <request index="0" response="0" foes="0" cont="0"/>
     </junction>
@@ -303,26 +300,26 @@
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
 
-    <connection from="-E2" to="E6" fromLane="0" toLane="0" via=":T5_0_0" tl="clusterJ44_J47" linkIndex="0" dir="s" state="O"/>
-    <connection from="E0" to="E3" fromLane="0" toLane="0" via=":T1_0_0" tl="clusterJ41_J42_J43" linkIndex="0" dir="L" state="O"/>
-    <connection from="E0" to="E5" fromLane="0" toLane="0" via=":T1_1_0" tl="clusterJ41_J42_J43" linkIndex="1" dir="s" state="O"/>
-    <connection from="E0" to="E5" fromLane="0" toLane="1" via=":T1_1_1" tl="clusterJ41_J42_J43" linkIndex="2" dir="s" state="O"/>
-    <connection from="E1" to="E4" fromLane="0" toLane="0" via=":T2_0_0" tl="clusterJ39_J40" linkIndex="0" dir="s" state="O"/>
-    <connection from="E1" to="E4" fromLane="0" toLane="1" via=":T2_0_1" tl="clusterJ39_J40" linkIndex="1" dir="s" state="O"/>
+    <connection from="-E2" to="E6" fromLane="0" toLane="0" via=":T5_0_0" tl="T5" linkIndex="0" dir="s" state="O"/>
+    <connection from="E0" to="E3" fromLane="0" toLane="0" via=":T1_0_0" tl="T1" linkIndex="0" dir="L" state="O"/>
+    <connection from="E0" to="E5" fromLane="0" toLane="0" via=":T1_1_0" tl="T1" linkIndex="1" dir="s" state="O"/>
+    <connection from="E0" to="E5" fromLane="0" toLane="1" via=":T1_1_1" tl="T1" linkIndex="2" dir="s" state="O"/>
+    <connection from="E1" to="E4" fromLane="0" toLane="0" via=":T2_0_0" tl="T2" linkIndex="0" dir="s" state="O"/>
+    <connection from="E1" to="E4" fromLane="0" toLane="1" via=":T2_0_1" tl="T2" linkIndex="1" dir="s" state="O"/>
     <connection from="E11" to="E10" fromLane="0" toLane="1" via=":clusterJ1_M7_1_0" dir="s" state="M"/>
     <connection from="E14" to="E22" fromLane="0" toLane="0" via=":M4_0_0" dir="s" state="M"/>
     <connection from="E15" to="E16" fromLane="0" toLane="0" via=":M3_0_0" dir="s" state="M"/>
     <connection from="E16" to="E18" fromLane="0" toLane="0" via=":M9_0_0" dir="s" state="M"/>
     <connection from="E17" to="E9" fromLane="0" toLane="0" via=":M10_0_0" dir="s" state="M"/>
     <connection from="E20" to="E2" fromLane="0" toLane="0" via=":M6_2_0" dir="s" state="m"/>
-    <connection from="E22" to="E24" fromLane="0" toLane="0" via=":T3_0_0" tl="clusterJ55_clusterJ51_J53" linkIndex="0" dir="L" state="O"/>
-    <connection from="E22" to="E23" fromLane="0" toLane="0" via=":T3_1_0" tl="clusterJ55_clusterJ51_J53" linkIndex="1" dir="s" state="O"/>
-    <connection from="E22" to="E23" fromLane="0" toLane="1" via=":T3_1_1" tl="clusterJ55_clusterJ51_J53" linkIndex="2" dir="s" state="O"/>
+    <connection from="E22" to="E24" fromLane="0" toLane="0" via=":T3_0_0" tl="T3" linkIndex="0" dir="L" state="O"/>
+    <connection from="E22" to="E23" fromLane="0" toLane="0" via=":T3_1_0" tl="T3" linkIndex="1" dir="s" state="O"/>
+    <connection from="E22" to="E23" fromLane="0" toLane="1" via=":T3_1_1" tl="T3" linkIndex="2" dir="s" state="O"/>
     <connection from="E23" to="E21" fromLane="0" toLane="0" via=":M5_2_0" dir="s" state="M"/>
     <connection from="E23" to="E21" fromLane="1" toLane="1" via=":M5_2_1" dir="s" state="M"/>
     <connection from="E24" to="E2" fromLane="0" toLane="0" via=":M6_0_0" dir="s" state="M"/>
-    <connection from="E25" to="E17" fromLane="0" toLane="0" via=":T4_0_0" tl="clusterJ26_J58" linkIndex="0" dir="s" state="O"/>
-    <connection from="E25" to="E20" fromLane="1" toLane="0" via=":T4_1_0" tl="clusterJ26_J58" linkIndex="1" dir="s" state="O"/>
+    <connection from="E25" to="E17" fromLane="0" toLane="0" via=":T4_0_0" tl="T4" linkIndex="0" dir="s" state="O"/>
+    <connection from="E25" to="E20" fromLane="1" toLane="0" via=":T4_1_0" tl="T4" linkIndex="1" dir="s" state="O"/>
     <connection from="E26" to="E0" fromLane="0" toLane="0" via=":M1_0_0" dir="s" state="M"/>
     <connection from="E26" to="E1" fromLane="1" toLane="0" via=":M1_1_0" dir="s" state="M"/>
     <connection from="E27" to="E15" fromLane="0" toLane="0" via=":M11_0_0" dir="s" state="M"/>

@@ -15,27 +15,21 @@
         <lateral-resolution value="0.5"/>
         
         <!-- Improve junction behavior -->
-        <collision.action value="none"/>
-        <collision.mingap-factor value="1.0"/>
+        <collision.action value="teleport"/>
         
-        <!-- So the vehicle cannot teleport-->
-       <time-to-teleport value="0"/>
-
+        <!-- FIXED: Changed from 0 to 300 seconds -->
+        <!-- Vehicles will teleport after being stuck for 300 seconds (5 minutes) -->
+        <time-to-teleport value="2"/>
         
-        <!-- Allow vehicles to ignore junction blockers after some time -->
+        <!-- Additional teleport parameter for highways -->
         <time-to-teleport.highways value="0"/>
-        
-        <!-- Ignore specific junction rules to reduce gridlock -->
-        <ignore-junction-blocker value="60"/>
-        
-        <!-- Disable pedestrian crosswalk effects (no pedestrians in simulation) -->
-        <pedestrian.model value="nonInteracting"/>
     </processing>
 
-    <!-- Report settings -->
+    <!-- Optional: Add reporting for better debugging -->
     <report>
         <verbose value="true"/>
-        <no-step-log value="false"/>
+        <duration-log.statistics value="true"/>
+    <no-warnings value="true"/>
     </report>
-
+ 
 </sumoConfiguration>

@@ -9,12 +9,33 @@
         <route-files value="VType.xml,routes.rou.xml,flows_day_1.xml"/>
     </input>
 
-    <!-- Enable mixed traffic behavior -->
+    <!-- Processing settings for realistic traffic behavior -->
     <processing>
-      
-        <lateral-resolution value="0.2"/>
+        <!-- Enable sublane model for lateral movement -->
+        <lateral-resolution value="0.5"/>
+        
+        <!-- Improve junction behavior -->
+        <collision.action value="warn"/>
+        <collision.mingap-factor value="1.0"/>
+        
+        <!-- So the vehicle cannot teleport-->
+       <time-to-teleport value="-1"/>
+
+        
+        <!-- Allow vehicles to ignore junction blockers after some time -->
+        <time-to-teleport.highways value="0"/>
+        
+        <!-- Ignore specific junction rules to reduce gridlock -->
+        <ignore-junction-blocker value="60"/>
+        
+        <!-- Disable pedestrian crosswalk effects (no pedestrians in simulation) -->
+        <pedestrian.model value="nonInteracting"/>
     </processing>
 
-   
+    <!-- Report settings -->
+    <report>
+        <verbose value="true"/>
+        <no-step-log value="false"/>
+    </report>
 
 </sumoConfiguration>

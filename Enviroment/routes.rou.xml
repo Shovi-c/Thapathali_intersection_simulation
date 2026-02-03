@@ -6,7 +6,7 @@
     <!-- ===================== -->
     <route id="m_maternity" edges="E26 E0 E3 E2"/>
     <route id="m_kupondole" edges="E26 E0 E5 E21"/>
-    <route id="m_tri" edges="E26 E1 E4 E10"/>
+    <route id="m_tri" edges="E26 E1 E4 E11 E10"/>
 
    
 

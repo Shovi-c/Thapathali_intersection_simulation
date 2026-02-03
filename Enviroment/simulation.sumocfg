@@ -15,11 +15,11 @@
         <lateral-resolution value="0.5"/>
         
         <!-- Improve junction behavior -->
-        <collision.action value="warn"/>
+        <collision.action value="none"/>
         <collision.mingap-factor value="1.0"/>
         
         <!-- So the vehicle cannot teleport-->
-       <time-to-teleport value="-1"/>
+       <time-to-teleport value="0"/>
 
         
         <!-- Allow vehicles to ignore junction blockers after some time -->

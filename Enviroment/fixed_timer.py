@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
 MINIMAL TRAFFIC LIGHT CONTROL FOR SUMO
-Fixed version with proper state validation
+Fixed version with static logic override
 """
 
 import traci
 import sys
-import time
 
 # Configuration
 SUMO_CONFIG = "simulation.sumocfg"
@@ -15,36 +14,36 @@ SIMULATION_TIME = 58500
 
 # Traffic light configurations
 TRAFFIC_LIGHTS = {
-    "T1": 3,  # 3 signals
-    "T2": 2,  # 2 signals
-    "T3": 3,  # 3 signals
-    "T4": 2,  # 2 signals
-    "T5": 1   # 1 signal
+    "T1": 3,
+    "T2": 2,
+    "T3": 3,
+    "T4": 2,
+    "T5": 1
 }
 
-# Phase definitions with VALID states only
+# Phase definitions
 PHASE_1 = {
-    "T1": [("rrr", 15), ("ggg", 45)],  # Use lowercase
+    "T1": [("rrr", 15), ("ggg", 40), ("yyy", 5)],  # 45 total: 40 green + 5 yellow
     "T2": [("rr", 60)],
     "T3": [("rrr", 60)],
-    "T4": [("gg", 60)],
-    "T5": [("g", 15), ("r", 15), ("g", 30)]
+    "T4": [("gg", 55), ("yy", 5)],  # 60 total: 55 green + 5 yellow
+    "T5": [("g", 10), ("r", 15), ("g", 25), ("y", 5)]  # 55 total: 35 green + 5 yellow
 }
 
 PHASE_2 = {
-    "T1": [("rrr", 15), ("ggg", 45)],
-    "T2": [("gg", 60)],
+    "T1": [("rrr", 15), ("ggg", 40), ("yyy", 5)],  # 45 green becomes 40 + 5 yellow
+    "T2": [("gg", 55), ("yy", 5)],  # 60 total: 55 green + 5 yellow
     "T3": [("rrr", 60)],
     "T4": [("rr", 60)],
-    "T5": [("g", 15), ("r", 15), ("g", 30)]
+    "T5": [("g", 10), ("r", 15), ("g", 25), ("y", 5)]  # 55 total: 35 green + 5 yellow
 }
 
 PHASE_3 = {
-    "T1": [("rrr", 30), ("ggg", 15), ("rrr", 15)],
+    "T1": [("rrr", 30), ("ggg", 10), ("yyy", 5), ("rrr", 15)],  # 15 green becomes 10 + 5 yellow
     "T2": [("rr", 60)],
-    "T3": [("ggg", 60)],
+    "T3": [("ggg", 55), ("yyy", 5)],  # 60 total: 55 green + 5 yellow
     "T4": [("rr", 60)],
-    "T5": [("g", 15), ("r", 15), ("g", 30)]
+    "T5": [("g", 10), ("r", 15), ("g", 25), ("y", 5)]  # 55 total: 35 green + 5 yellow
 }
 
 PHASES = [
@@ -58,7 +57,6 @@ def validate_state(tl_id, state):
     expected_len = TRAFFIC_LIGHTS.get(tl_id, 0)
     if len(state) != expected_len:
         print(f"ERROR: {tl_id} expects {expected_len} signals, got '{state}' (len={len(state)})")
-        # Return default safe state
         if expected_len == 3:
             return "rrr"
         elif expected_len == 2:
@@ -72,9 +70,9 @@ def run_simulation():
     
     print("Starting SUMO with traffic light control...")
     
-    # Start SUMO
+    # Start SUMO - REMOVE --quit-on-end flag
     sumo_binary = "sumo-gui" if USE_GUI else "sumo"
-    sumo_cmd = [sumo_binary, "-c", SUMO_CONFIG, "--start", "--quit-on-end"]
+    sumo_cmd = [sumo_binary, "-c", SUMO_CONFIG]  # Removed --start and --quit-on-end
     
     try:
         traci.start(sumo_cmd)
@@ -89,11 +87,9 @@ def run_simulation():
         for tl_id in TRAFFIC_LIGHTS.keys():
             if tl_id in all_tls:
                 existing_tls.append(tl_id)
-                try:
-                    current_state = traci.trafficlight.getRedYellowGreenState(tl_id)
-                    print(f"✓ {tl_id}: Found with {len(current_state)} signals (current: {current_state})")
-                except:
-                    print(f"✓ {tl_id}: Found (could not get state)")
+                # TAKE CONTROL FROM STATIC LOGIC - ADD THIS LINE
+                traci.trafficlight.setProgram(tl_id, "0")  # Offline mode
+                print(f"✓ {tl_id}: Took control from static logic")
             else:
                 print(f"✗ {tl_id}: Not found in network")
         
@@ -108,6 +104,9 @@ def run_simulation():
         current_phase = 0
         phase_start_time = 0
         step = 0
+        
+        # Run one simulation step before setting states
+        traci.simulationStep()
         
         # Set initial states
         print("\nSetting initial states for Phase 1...")

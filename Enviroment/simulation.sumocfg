@@ -12,24 +12,11 @@
     <!-- Processing settings for realistic traffic behavior -->
     <processing>
         <!-- Enable sublane model for lateral movement -->
-        <lateral-resolution value="0.5"/>
+        <lateral-resolution value="1"/>
+         <collision.action value="teleport"/>
+        <ignore-junction-blocker value="0"/>  
+        <collision.stoptime value="0"/>
         
-        <!-- Improve junction behavior -->
-        <collision.action value="teleport"/>
-        
-        <!-- FIXED: Changed from 0 to 300 seconds -->
-        <!-- Vehicles will teleport after being stuck for 300 seconds (5 minutes) -->
-      <!-- <time-to-teleport value="2"/> --> 
-        
-        <!-- Additional teleport parameter for highways  <time-to-teleport.highways value="0"/>  -->
+     </processing>
        
-    </processing>
-
-    <!-- Optional: Add reporting for better debugging -->
-    <report>
-        <verbose value="true"/>
-        <duration-log.statistics value="true"/>
-    <no-warnings value="true"/>
-    </report>
- 
 </sumoConfiguration>
